@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de tareas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Cabecera principal -->
+    <header class="header">
+      <h1 class="titulo">mis tareas</h1>
+      <p class="subtitulo">organiza tu día</p>
+    </header>
+
+    <!-- Formulario para añadir una nueva tarea -->
+    <form class="formulario" id="formulario">
+      <input
+        type="text"
+        id="input-tarea"
+        class="input-tarea"
+        placeholder="Nueva tarea..."
+        maxlength="100"
+        autocomplete="off"
+      />
+      <button type="submit" class="btn-agregar" aria-label="Agregar tarea">+</button>
+    </form>
+
+    <!-- Filtros: mostrar todas, activas o completadas -->
+    <div class="filtros" role="group" aria-label="Filtrar tareas">
+      <button class="filtro activo" data-filtro="todas">Todas</button>
+      <button class="filtro" data-filtro="completadas">Completadas</button>
+    </div>
+
+    <!-- Lista de tareas -->
+    <ul class="lista-tareas" id="lista-tareas" aria-label="Lista de tareas">
+      <!-- Las tareas se generan dinámicamente desde script.js -->
+    </ul>
+
+    <!-- Pie con conteo y opción de limpiar -->
+    <footer class="pie" id="pie">
+      <span id="contador">0 tareas pendientes</span>
+      <button class="btn-limpiar" id="btn-limpiar">Limpiar</button>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

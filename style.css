@@ -1,0 +1,214 @@
+/* =============================================
+   Variables globales y reset básico
+   ============================================= */
+:root {
+  --color-fondo: #f5f0e8;
+  --color-superficie: #fffdf7;
+  --color-acento: #c84b31;
+  --color-acento-suave: #f0d5ce;
+  --color-texto: #1a1a1a;
+  --color-texto-suave: #888;
+  --color-borde: #e0d8cc;
+  --radio: 4px;
+  --sombra: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+/* =============================================
+   Contenedor principal
+   ============================================= */
+.app {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* =============================================
+   Cabecera
+   ============================================= */
+.header {
+  margin-bottom: 2rem;
+}
+
+.titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-texto);
+  letter-spacing: -1px;
+}
+
+.subtitulo {
+  color: var(--color-texto-suave);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* =============================================
+   Formulario de nueva tarea
+   ============================================= */
+.formulario {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.input-tarea {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio);
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.input-tarea:focus {
+  border-color: var(--color-acento);
+}
+
+.input-tarea::placeholder {
+  color: var(--color-texto-suave);
+}
+
+.btn-agregar {
+  width: 48px;
+  height: 48px;
+  background: var(--color-acento);
+  color: #fff;
+  border: none;
+  border-radius: var(--radio);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  line-height: 1;
+}
+
+.btn-agregar:hover {
+  opacity: 0.88;
+}
+
+.btn-agregar:active {
+  transform: scale(0.94);
+}
+
+/* =============================================
+   Filtros
+   ============================================= */
+.filtros {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.filtro {
+  padding: 0.35rem 0.85rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filtro:hover {
+  color: var(--color-texto);
+}
+
+/* Estado activo del filtro seleccionado */
+.filtro.activo {
+  background: var(--color-acento-suave);
+  color: var(--color-acento);
+  border-color: var(--color-acento-suave);
+  font-weight: 500;
+}
+
+/* =============================================
+   Lista de tareas
+   ============================================= */
+.lista-tareas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 40px; /* evita colapso cuando está vacía */
+}
+
+/* Elemento individual de tarea */
+.tarea {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-superficie);
+  border: 2px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  animation: aparecer 0.2s ease;
+}
+
+/* Animación de entrada al agregar una tarea */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Texto de la tarea */
+.tarea-texto {
+  flex: 1;
+  font-size: 0.97rem;
+}
+
+/* =============================================
+   Pie de página
+   ============================================= */
+.pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+}
+
+.btn-limpiar {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.btn-limpiar:hover {
+  color: var(--color-acento);
+}
