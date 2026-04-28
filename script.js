@@ -28,6 +28,5 @@ function renderizarTarea(texto) {
   const li = document.createElement('li')
   li.className = 'tarea'
   li.textContent = texto
-
   listaTareas.appendChild(li)
 }
