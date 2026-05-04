@@ -94,6 +94,7 @@ function renderizarTarea(tarea) { // ahora recibe un objeto
   li.appendChild(span)
   li.appendChild(btnEliminar)
   listaTareas.appendChild(li)
+  actualizarContador() // <- después de añadir la tarea, actualizamos el contador
 }
 
 /* Lee cuántos <li> hay en la lista y actualiza el texto del contador */
